@@ -9,6 +9,7 @@ import logoIcon from "@public/assets/images/logo.svg";
 const Nav = () => {
   const isUserLoggedIn = true;
   const [providers, setProviders] = useState(null);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
     const init = async () => {
@@ -50,6 +51,64 @@ const Nav = () => {
                 height={37}
               />
             </Link>
+          </div>
+        ) : (
+          <>
+            {providers &&
+              Object.values(providers).map((provider) => (
+                <button
+                  className="black_btn"
+                  type="button"
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
+                >
+                  Sign In
+                </button>
+              ))}
+          </>
+        )}
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className="sm:hidden flex relative">
+        {isUserLoggedIn ? (
+          <div className="flex">
+            <Image
+              className="rounded-full"
+              src={logoIcon}
+              alt="Profile"
+              width={37}
+              height={37}
+              onClick={() => setToggleDropdown((prev) => !prev)}
+            />
+            {toggleDropdown && (
+              <div className="dropdown">
+                <Link
+                  className="dropdown_link"
+                  href="/profile"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  My Profile
+                </Link>
+                <Link
+                  className="dropdown_link"
+                  href="/create-prompt"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  Create Prompt
+                </Link>
+                <button
+                  className="mt-5 w-full black_btn"
+                  type="button"
+                  onClick={() => {
+                    setToggleDropdown(false);
+                    signOut();
+                  }}
+                >
+                  Sign Out
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <>
