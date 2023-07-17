@@ -4,8 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter, usePathname } from "next/navigation";
-import tickImage from "../public/assets/icons/tick.svg";
-import copyImage from "../public/assets/icons/copy.svg";
+import tickImage from "@public/assets/icons/tick.svg";
+import copyImage from "@public/assets/icons/copy.svg";
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const [copied, setCopied] = useState("");
