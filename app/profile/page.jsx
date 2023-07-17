@@ -10,7 +10,9 @@ const MyProfile = () => {
   const { data: session } = useSession();
   const [posts, setPosts] = useState([]);
 
-  const handleEdit = () => {};
+  const handleEdit = () => {
+    router.push("");
+  };
 
   const handleDelete = async () => {};
 
