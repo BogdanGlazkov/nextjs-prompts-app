@@ -21,13 +21,14 @@ const Nav = () => {
 
   return (
     <nav className="flex-between w-full mb-16 pt-3">
-      <Link href="/" className="flex gap-2 flex-center">
+      <Link className="flex gap-2 flex-center" href="/">
         <Image
           className="object-contain"
           src={logoIcon}
           alt="Logo"
           width={30}
           height={30}
+          priority={true}
         />
         <p className="logo_text">Prompts App</p>
       </Link>
@@ -49,6 +50,7 @@ const Nav = () => {
                 alt="Profile"
                 width={37}
                 height={37}
+                priority={true}
               />
             </Link>
           </div>
@@ -80,6 +82,7 @@ const Nav = () => {
               width={37}
               height={37}
               onClick={() => setToggleDropdown((prev) => !prev)}
+              priority={true}
             />
             {toggleDropdown && (
               <div className="dropdown">

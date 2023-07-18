@@ -29,6 +29,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             alt="User image"
             width={40}
             height={40}
+            priority={true}
           />
           <div className="flex flex-col">
             <h3 className="font-satoshi font-semibold text-gray-900">
@@ -46,6 +47,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             alt="Copy"
             width={12}
             height={12}
+            priority={true}
           />
         </div>
       </div>
